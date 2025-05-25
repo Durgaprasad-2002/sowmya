@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        medium: "0px 0px 12px 0px #3659E21F,0px 4px 8px 0px #3659E214",
+      },
       fontSize: {
         8: ["8px", { lineHeight: "12px" }],
         10: ["10px", { lineHeight: "16px" }],
