@@ -1,119 +1,227 @@
-// Aim.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle, Target, Brain, Lightbulb, XCircle, Users } from "lucide-react";
+import {
+  CheckCircle,
+  Target,
+  Brain,
+  Lightbulb,
+  XCircle,
+  Users,
+} from "lucide-react";
+import Image from "next/image";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+};
 
 export default function Aim() {
   return (
-    <div className="px-6 md:px-20 py-12 space-y-16">
+    <div className=" space-y-20  ">
       {/* Intro Banner */}
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-        <h1 className="text-4xl font-bold text-center mb-4">Our Purpose – Your Success</h1>
-        <p className="text-center text-lg text-gray-600 max-w-2xl mx-auto">
-          At Sowmya Consultancy Services, our mission is simple: empower students and professionals to excel in their careers through expert training, mentorship, and hands-on learning.
-        </p>
-      </motion.div>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 place-items-center relative overflow-hidden md:px-6 px-5 py-10">
+        <div className="h-fit z-10">
+          <motion.div {...fadeInUp} transition={{ duration: 0.6 }}>
+            <h1 className="text-32 font-extrabold text-center text-gray-900 ">
+              Our Purpose – Your Success
+            </h1>
+            <p className="text-center text-18 text-gray-600 max-w-3xl mx-auto">
+              At Sowmya Consultancy Services, our mission is simple: empower
+              students and professionals to excel in their careers through
+              expert training, mentorship, and hands-on learning.
+            </p>
+          </motion.div>
+        </div>
+        <div>
+          <Image
+            alt="hero-img"
+            src="/assets/character-climbing-stairs.svg"
+            width={500}
+            height={400}
+            className="h-auto max-w-[400px] z-10"
+          />
+        </div>
+        <div className="absolute bottom-[-250px] mx-auto hidden h-[313.87px] w-[935px] rotate-[0deg] -z-10 rounded-[50%] bg-blue-600 opacity-50 blur-[200px] md:block"></div>
+      </div>
 
-      {/* Mission */}
-      <motion.section className="space-y-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
-        <h2 className="text-2xl font-semibold">Our Mission</h2>
-        <p className="text-gray-700">
-          We are dedicated to bridging the gap between academic learning and professional success by offering industry-aligned, job-ready programs. Through practical training and personalized guidance, we help individuals build a future-proof career foundation.
-        </p>
-      </motion.section>
+      {/* Mission & Vision */}
+      <div className="grid md:grid-cols-2 gap-12 md:px-6 px-5 py-10">
+        <motion.section {...fadeInUp} transition={{ delay: 0.2 }}>
+          <h2 className="text-2xl font-semibold mb-2 text-indigo-600">
+            Our Mission
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            We are dedicated to bridging the gap between academic learning and
+            professional success by offering industry-aligned, job-ready
+            programs. Through practical training and personalized guidance, we
+            help individuals build a future-proof career foundation.
+          </p>
+        </motion.section>
 
-      {/* Vision */}
-      <motion.section className="space-y-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-        <h2 className="text-2xl font-semibold">Our Vision</h2>
-        <p className="text-gray-700">
-          Our vision is to be a nationally recognized career consultancy that transforms talent into skilled professionals through consistent mentorship, practical innovation, and result-driven learning experiences.
-        </p>
-      </motion.section>
+        <motion.section {...fadeInUp} transition={{ delay: 0.3 }}>
+          <h2 className="text-2xl font-semibold mb-2 text-indigo-600">
+            Our Vision
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Our vision is to be a nationally recognized career consultancy that
+            transforms talent into skilled professionals through consistent
+            mentorship, practical innovation, and result-driven learning
+            experiences.
+          </p>
+        </motion.section>
+      </div>
 
       {/* Core Values */}
-      <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
-        <h2 className="text-2xl font-semibold mb-4">Core Values</h2>
+      <motion.section
+        {...fadeInUp}
+        transition={{ delay: 0.4 }}
+        className="md:px-6 px-5 py-10"
+      >
+        <h2 className="text-2xl font-semibold mb-6 text-indigo-600">
+          Core Values
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="flex items-start space-x-3">
-            <CheckCircle className="text-green-600" />
-            <div>
-              <p className="font-medium">Integrity</p>
-              <p className="text-sm text-gray-600">Honest and transparent guidance at every step.</p>
+          {[
+            {
+              icon: <CheckCircle className="text-green-600" />,
+              title: "Integrity",
+              desc: "Honest and transparent guidance at every step.",
+            },
+            {
+              icon: <Target className="text-blue-600" />,
+              title: "Career Focus",
+              desc: "We put your goals at the center of our approach.",
+            },
+            {
+              icon: <Brain className="text-purple-600" />,
+              title: "Expertise",
+              desc: "Training by mentors with over 10 years of industry experience.",
+            },
+            {
+              icon: <Lightbulb className="text-yellow-500" />,
+              title: "Innovation",
+              desc: "Always evolving with latest tech and tools.",
+            },
+          ].map((value, index) => (
+            <div
+              key={index}
+              className="p-4 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition"
+            >
+              <div className="flex items-start space-x-3">
+                <div className="p-2 bg-white rounded-full shadow">
+                  {value.icon}
+                </div>
+                <div>
+                  <p className="font-medium text-lg">{value.title}</p>
+                  <p className="text-sm text-gray-600">{value.desc}</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="flex items-start space-x-3">
-            <Target className="text-blue-600" />
-            <div>
-              <p className="font-medium">Career Focus</p>
-              <p className="text-sm text-gray-600">We put your goals at the center of our approach.</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-3">
-            <Brain className="text-purple-600" />
-            <div>
-              <p className="font-medium">Expertise</p>
-              <p className="text-sm text-gray-600">Training by mentors with over 10 years of industry experience.</p>
-            </div>
-          </div>
-          <div className="flex items-start space-x-3">
-            <Lightbulb className="text-yellow-500" />
-            <div>
-              <p className="font-medium">Innovation</p>
-              <p className="text-sm text-gray-600">Always evolving with latest tech and tools.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </motion.section>
 
       {/* Problems We Solve */}
-      <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
-        <h2 className="text-2xl font-semibold mb-4">Problems We Solve</h2>
+
+      <motion.section
+        {...fadeInUp}
+        transition={{ delay: 0.5 }}
+        className="md:px-6 px-5 py-10"
+      >
+        <h2 className="text-3xl font-semibold text-center text-red-600 mb-10">
+          Problems We Solve
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="flex items-start space-x-3">
-            <XCircle className="text-red-500" />
-            <p className="text-gray-700">Lack of real-world interview preparation and soft skills training.</p>
-          </div>
-          <div className="flex items-start space-x-3">
-            <XCircle className="text-red-500" />
-            <p className="text-gray-700">Limited or no industry exposure for fresh graduates.</p>
-          </div>
-          <div className="flex items-start space-x-3">
-            <XCircle className="text-red-500" />
-            <p className="text-gray-700">Generic resumes that fail to impress employers.</p>
-          </div>
-          <div className="flex items-start space-x-3">
-            <CheckCircle className="text-green-600" />
-            <p className="text-gray-700 font-medium">We solve these challenges with practical training and expert support.</p>
-          </div>
+          {[
+            {
+              title: "Lack of Real-World Preparation",
+              description:
+                "Students often miss hands-on interview and soft skill training that employers value.",
+            },
+            {
+              title: "No Industry Exposure",
+              description:
+                "Fresh graduates struggle due to lack of experience with real-world tools and work environments.",
+            },
+            {
+              title: "Weak Resumes",
+              description:
+                "Generic resumes with no personalization lead to low employer interest.",
+            },
+            {
+              title: "We Have the Solution",
+              description:
+                "Practical training, resume tailoring, and expert support to bridge the gap.",
+              icon: <CheckCircle className="text-green-600 w-6 h-6" />,
+              highlight: true,
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className={`rounded-xl border p-6 bg-white shadow-sm transition hover:shadow-md ${
+                item.highlight ? "border-green-500" : "border-red-300"
+              }`}
+            >
+              <div className="flex items-start space-x-4">
+                <div className="p-2 rounded-full bg-gray-100">
+                  {item.icon ?? <XCircle className="text-red-500 w-6 h-6" />}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
+                  <p className="text-gray-600 text-sm">{item.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </motion.section>
 
       {/* Why Choose Us */}
-      <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
-        <h2 className="text-2xl font-semibold mb-4">Why Choose Us</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          <div className="flex items-start space-x-3">
-            <Users className="text-indigo-500" />
-            <p className="text-gray-700">Specialized technical training for job-specific roles.</p>
-          </div>
-          <div className="flex items-start space-x-3">
-            <Users className="text-indigo-500" />
-            <p className="text-gray-700">Weekly expert-led mock interviews with constructive feedback.</p>
-          </div>
-          <div className="flex items-start space-x-3">
-            <Users className="text-indigo-500" />
-            <p className="text-gray-700">Resume tailoring and LinkedIn grooming services.</p>
-          </div>
-          <div className="flex items-start space-x-3">
-            <Users className="text-indigo-500" />
-            <p className="text-gray-700">Strong placement support through MNC collaborations.</p>
-          </div>
+      <motion.section
+        {...fadeInUp}
+        transition={{ delay: 0.6 }}
+        className="md:px-6 px-5 py-10"
+      >
+        <h2 className="text-3xl font-semibold text-center text-indigo-600 mb-10">
+          Why Choose Us
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "Role-Specific Technical Training",
+              desc: "Get trained for exactly what your future job requires.",
+            },
+            {
+              title: "Weekly Mock Interviews",
+              desc: "Get real-time feedback from industry experts and improve confidence.",
+            },
+            {
+              title: "Tailored Resume & LinkedIn",
+              desc: "Stand out with a resume and online presence crafted to impress.",
+            },
+            {
+              title: "Strong Placement Support",
+              desc: "Get referred and guided into top MNCs through our network.",
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="p-6 border rounded-xl bg-white shadow-sm hover:shadow-md transition"
+            >
+              <div className="flex items-start space-x-4">
+                <div className="p-2 rounded-full bg-indigo-100">
+                  <Users className="text-indigo-500 w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
+                  <p className="text-gray-600 text-sm">{item.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </motion.section>
     </div>
   );
 }
-
-
-// The Services page will be created next.

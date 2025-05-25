@@ -13,63 +13,69 @@ import {
 
 export default function Services() {
   return (
-    <div className="px-6 md:px-20 py-12 space-y-24 bg-gray-50 text-gray-800">
-      {/* Intro Banner */}
+    <div className="px-6 md:px-20 py-12 space-y-28 bg-gradient-to-b from-white to-gray-100 text-gray-800">
+      {/* Hero Section */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center"
+        transition={{ duration: 0.7 }}
+        className="text-center max-w-4xl mx-auto"
       >
-        <h1 className="text-4xl font-extrabold mb-4 text-primary">
-          Explore Our Career-Oriented Services
+        <h1 className="text-25 md:text-44 font-black mb-6 text-primary drop-shadow-sm">
+          Empower Your Career Journey
         </h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          Begin your journey to professional success with our carefully crafted
-          services for students, professionals, institutions, and corporate
-          teams.
+        <p className="text-18 md:text-25 text-gray-600">
+          Discover our suite of customized services designed to elevate
+          students, professionals, and institutions.
         </p>
       </motion.div>
 
-      {/* Service Sections */}
-      <div className="space-y-16">
-        <ServiceGroup
-          title="For Freshers"
-          items={freshersServices}
-          delay={0.2}
-        />
-        <ServiceGroup
-          title="For Working Professionals"
-          items={professionalsServices}
-          delay={0.3}
-        />
-        <ServiceGroup
-          title="Campus & Institutional Training"
-          items={campusServices}
-          delay={0.4}
-        />
-        <ServiceGroup
-          title="Corporate Training"
-          items={corporateServices}
-          delay={0.5}
-        />
-      </div>
+      {/* Sections */}
+      <AnimatedSection
+        title="Freshers' Launchpad"
+        bg="bg-blue-50"
+        items={freshersServices}
+        delay={0.2}
+      />
 
-      {/* Technologies */}
+      <AnimatedSection
+        title="Professional Edge"
+        bg="bg-purple-50"
+        items={professionalsServices}
+        delay={0.3}
+      />
+
+      <AnimatedSection
+        title="Campus Collaboration"
+        bg="bg-green-50"
+        items={campusServices}
+        delay={0.4}
+      />
+
+      <AnimatedSection
+        title="Corporate Enablement"
+        bg="bg-yellow-50"
+        items={corporateServices}
+        delay={0.5}
+      />
+
+      {/* Technologies We Teach */}
       <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        className="bg-gradient-to-br from-white to-gray-100 p-4 md:p-8 rounded-2xl shadow-xl"
       >
-        <h2 className="text-2xl font-bold mb-6 text-primary">
-          Technologies Covered
+        <h2 className="text-22 md:text-32 font-bold mb-6 text-center text-primary">
+          Technologies We Teach
         </h2>
-        <div className="grid md:grid-cols-2 gap-10 bg-white p-6 rounded-2xl shadow-lg">
-          <div>
-            <h3 className="font-semibold text-lg mb-2 text-gray-700">
-              IT Technologies
+        <div className="grid md:grid-cols-2 gap-10">
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-all">
+            <h3 className="font-semibold text-20 md:text-25 mb-4 flex items-center gap-2 text-gray-800">
+              💻 IT Technologies
             </h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-1">
+            <ul className="space-y-2 text-gray-600 list-inside list-disc text-16 md:text-20">
               <li>AI & Machine Learning</li>
               <li>Cloud Computing</li>
               <li>UI/UX Design</li>
@@ -77,11 +83,11 @@ export default function Services() {
               <li>DevOps</li>
             </ul>
           </div>
-          <div>
-            <h3 className="font-semibold text-lg mb-2 text-gray-700">
-              Non-IT Technologies
+          <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-all">
+            <h3 className="font-semibold text-20 md:text-25 mb-4 flex items-center gap-2 text-gray-800">
+              🛠️ Non-IT Technologies
             </h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-1">
+            <ul className="space-y-2 text-gray-600 list-inside list-disc">
               <li>Embedded Systems</li>
               <li>VLSI Design</li>
               <li>AutoCAD, CREO</li>
@@ -91,65 +97,109 @@ export default function Services() {
         </div>
       </motion.section>
 
-      {/* Additional Services */}
+      {/* Add-On Offerings */}
       <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.7 }}
-        className="bg-white p-6 rounded-2xl shadow-lg"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+        className="bg-white p-8 rounded-2xl shadow-xl"
       >
-        <h2 className="text-2xl font-bold mb-6 text-primary">
-          Additional Services
+        <h2 className="md:text-32 text-22 font-bold mb-6 text-center text-primary">
+          Add-On Offerings
         </h2>
-        <ul className="list-disc list-inside text-gray-700 space-y-2">
-          <li>1:1 Career Mentorship</li>
-          <li>Capstone Projects for Hands-On Learning</li>
-          <li>Domain-Specific Mock Interviews</li>
-          <li>Job Alerts via Dedicated Placement Portal</li>
-        </ul>
+        <div className="grid md:grid-cols-2 gap-6 text-gray-700">
+          <div className="flex items-start gap-4">
+            <span className="text-2xl text-primary">👨‍🏫</span>
+            <div>
+              <h4 className="font-semibold text-20 md:text-25">
+                1:1 Career Mentorship
+              </h4>
+              <p className="text-sm">
+                Personalized guidance from industry experts.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <span className="text-2xl text-primary">🧪</span>
+            <div>
+              <h4 className="font-semibold text-20 md:text-25">
+                Capstone Projects
+              </h4>
+              <p className="text-sm">
+                Build practical, real-world applications.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <span className="text-2xl text-primary">🎯</span>
+            <div>
+              <h4 className="font-semibold text-20 md:text-25">
+                Mock Interviews
+              </h4>
+              <p className="text-sm">
+                Simulate interviews with expert feedback.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <span className="text-2xl text-primary">📢</span>
+            <div>
+              <h4 className="font-semibold text-20 md:text-25">Job Alerts</h4>
+              <p className="text-sm">Stay updated via our placement portal.</p>
+            </div>
+          </div>
+        </div>
       </motion.section>
     </div>
   );
 }
 
-function ServiceGroup({ title, items, delay }: any) {
+function AnimatedSection({ title, items, bg, delay }: any) {
   return (
     <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay }}
+      viewport={{ once: true }}
+      className={`${bg} rounded-3xl shadow-inner p-4 md:p-8`}
     >
-      <h2 className="text-2xl font-bold mb-6 text-primary">{title}</h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {items.map((item: any, i: number) => (
-          <ServiceCard
-            key={i}
-            icon={item.icon}
-            title={item.title}
-            description={item.description}
-          />
+      <h2 className="text-22 md:text-32 font-bold mb-6 text-center text-primary">
+        {title}
+      </h2>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {items.map((item: any, idx: number) => (
+          <motion.div
+            key={idx}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300"
+          >
+            <div className="text-primary text-2xl mb-2">{item.icon}</div>
+            <h3 className="font-semibold  text-18 md:text-25 text-gray-800 mb-1">
+              {item.title}
+            </h3>
+            <p className="text-gray-600 text-14 md:text-20 leading-relaxed">
+              {item.description}
+            </p>
+          </motion.div>
         ))}
       </div>
     </motion.section>
   );
 }
 
-function ServiceCard({
-  icon,
-  title,
-  description,
-}: {
-  icon: any;
-  title: string;
-  description: string;
-}) {
+function TechList({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="bg-white shadow-md rounded-2xl p-6 flex space-x-4 hover:shadow-xl transition-shadow duration-300">
-      <div className="text-primary text-xl mt-1">{icon}</div>
-      <div>
-        <h3 className="font-semibold text-lg mb-1 text-gray-800">{title}</h3>
-        <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
-      </div>
+    <div>
+      <h3 className="font-semibold text-20 md:text-25 mb-2 text-gray-700">
+        {title}
+      </h3>
+      <ul className="list-disc list-inside text-gray-600 space-y-1">
+        {items.map((item, i) => (
+          <li key={i}>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -159,105 +209,91 @@ const freshersServices = [
     icon: <Laptop />,
     title: "Interview-Oriented Training",
     description:
-      "Learn Python, Java, SQL, DBMS, and Linux with focused modules that prep you for real interviews.",
+      "Learn Python, Java, SQL, DBMS, and Linux with focused modules.",
   },
   {
     icon: <Briefcase />,
     title: "MNC Internships",
-    description:
-      "Hands-on internship programs with reputed MNCs to bridge academia and real-world skills.",
+    description: "Bridge academia and industry with hands-on MNC internships.",
   },
   {
     icon: <FileText />,
     title: "Resume Tailoring",
-    description:
-      "Get personalized resumes and optimized LinkedIn profiles to stand out in job searches.",
+    description: "Personalized resumes and LinkedIn profile optimization.",
   },
   {
     icon: <ArrowRightCircle />,
-    title: "Mock Interviews Weekly",
+    title: "Weekly Mock Interviews",
     description:
-      "Participate in weekly mocks with feedback from senior engineers and hiring experts.",
+      "Feedback from industry veterans through weekly mock sessions.",
   },
   {
     icon: <School />,
     title: "Career Counselling",
-    description:
-      "Work with mentors to define a strategic roadmap aligned with your interests and industry trends.",
+    description: "Strategic guidance aligned with your goals and trends.",
   },
 ];
 
 const professionalsServices = [
   {
     icon: <Settings />,
-    title: "Advanced Technical Upskilling",
-    description:
-      "Master modern frameworks, tools, and cloud platforms to enhance your domain expertise.",
+    title: "Technical Upskilling",
+    description: "Master tools, frameworks, and cloud for career growth.",
   },
   {
     icon: <Laptop />,
-    title: "Hands-on Project Scenarios",
-    description:
-      "Work on real-time projects that boost confidence and problem-solving skills.",
+    title: "Real Project Work",
+    description: "Work on scenarios that simulate real business needs.",
   },
   {
     icon: <Users />,
-    title: "Senior-Level Mentorship",
-    description:
-      "Get mentored by industry veterans with deep domain knowledge and hiring insights.",
+    title: "Mentorship Access",
+    description: "Guidance from experienced professionals in your field.",
   },
   {
     icon: <Briefcase />,
-    title: "Flexible Scheduling",
-    description:
-      "Evening & weekend sessions tailored for working professionals with busy calendars.",
+    title: "Flexible Schedules",
+    description: "Weekend/evening sessions for your convenience.",
   },
 ];
 
 const campusServices = [
   {
     icon: <School />,
-    title: "Campus Collaboration",
-    description:
-      "End-to-end academic partnerships including bootcamps, tech talks, and student engagement.",
+    title: "Institutional Tie-ups",
+    description: "Bootcamps, tech talks, and student engagement activities.",
   },
   {
     icon: <Settings />,
-    title: "Innovation Centers",
-    description:
-      "Establish and support lab-based learning and real-time development environments.",
+    title: "Innovation Labs",
+    description: "Enable labs for real-time learning and development.",
   },
   {
     icon: <FileText />,
-    title: "Curriculum Integration",
-    description:
-      "Embed industry modules within your academic syllabus for better job preparedness.",
+    title: "Curriculum Enhancement",
+    description: "Integrate job-oriented content into your courses.",
   },
   {
     icon: <Briefcase />,
-    title: "Certification Workshops",
-    description:
-      "Short-term practical training and industry-recognized certificates.",
+    title: "Certification Programs",
+    description: "Short practical workshops with certification.",
   },
 ];
 
 const corporateServices = [
   {
     icon: <Settings />,
-    title: "Custom Employee Programs",
-    description:
-      "Bespoke upskilling for employee groups via online or on-premise formats.",
+    title: "Tailored Employee Tracks",
+    description: "Upskill teams with custom online/on-site modules.",
   },
   {
     icon: <Laptop />,
-    title: "Tech Upgrade Tracks",
-    description:
-      "Stay updated with focused content around the latest technologies and stacks.",
+    title: "Tech Refreshers",
+    description: "Latest tech content for your evolving teams.",
   },
   {
     icon: <Briefcase />,
-    title: "Bootcamps by Domain",
-    description:
-      "Short, intensive bootcamps curated for business, tech, and non-tech teams.",
+    title: "Domain Bootcamps",
+    description: "Short intensive learning by domain specialists.",
   },
 ];
