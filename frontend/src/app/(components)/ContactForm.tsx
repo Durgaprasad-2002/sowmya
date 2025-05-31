@@ -32,8 +32,9 @@ function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      console.log(contactSchema);
-      const resp = await fetch(`http://localhost:5000/contact`, {
+      const backend = process.env.NEXT_PUBLIC_API_URL;
+
+      const resp = await fetch(`${backend}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -66,8 +67,9 @@ function ContactForm() {
         <label className="block mb-1 text-18">Name</label>
         <input
           {...register("name")}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded focus:outline-gray-500 duration-150 transition-all"
           placeholder="e.g. gates"
+          type="text"
         />
         {errors.name && (
           <p className="text-red-500 text-sm">{errors.name.message}</p>
@@ -78,8 +80,9 @@ function ContactForm() {
         <label className="block mb-1 text-18">Phone Number</label>
         <input
           {...register("phone")}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded focus:outline-gray-500 duration-150 transition-all"
           placeholder="Type here"
+          type="tel"
         />
         {errors.phone && (
           <p className="text-red-500 text-sm">{errors.phone.message}</p>
@@ -90,8 +93,9 @@ function ContactForm() {
         <label className="block mb-1 text-18">Email ID</label>
         <input
           {...register("email")}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded focus:outline-gray-500 duration-150 transition-all"
           placeholder="e.g. gates@mail.com"
+          type="email"
         />
         {errors.email && (
           <p className="text-red-500 text-sm">{errors.email.message}</p>
@@ -102,7 +106,7 @@ function ContactForm() {
         <label className="block mb-1 text-18">Your Message</label>
         <textarea
           {...register("message")}
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded focus:outline-gray-500 duration-150 transition-all"
           placeholder="Type here"
           rows={4}
         />

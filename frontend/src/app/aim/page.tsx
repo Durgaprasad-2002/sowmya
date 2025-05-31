@@ -10,183 +10,250 @@ import {
   Users,
 } from "lucide-react";
 import Image from "next/image";
+import ExpandCards from "./(components)/ExpandCards";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
+export function MissionVisionSection() {
+  return (
+    <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12">
+      <div className="bg-blue-50 rounded-3xl p-10 shadow-lg">
+        <h3 className="text-3xl font-bold text-blue-900 mb-4">Our Mission</h3>
+        <p className="text-gray-700 text-lg leading-relaxed">
+          We are dedicated to bridging the gap between academic learning and
+          professional success by offering industry-aligned, job-ready programs.
+          Through practical training and personalized guidance, we help
+          individuals build a future-proof career foundation.
+        </p>
+      </div>
+
+      <div className="bg-yellow-50 rounded-3xl p-10 shadow-lg">
+        <h3 className="text-3xl font-bold text-yellow-800 mb-4">Our Vision</h3>
+        <p className="text-gray-800 text-lg leading-relaxed">
+          Our vision is to be a nationally recognized career consultancy that
+          transforms talent into skilled professionals through consistent
+          mentorship, practical innovation, and result-driven learning
+          experiences.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+const coreValues = [
+  {
+    title: "Integrity",
+    description: "Honest and transparent guidance at every step.",
+    imageSrc: "/assets/character-climbing-stairs.svg",
+  },
+  {
+    title: "Career Focus",
+    description: "We put your goals at the center of our approach.",
+    imageSrc: "/assets/character-climbing-stairs.svg",
+  },
+  {
+    title: "Expertise",
+    description:
+      "Training by mentors with over 10 years of industry experience.",
+    imageSrc: "/assets/character-climbing-stairs.svg",
+  },
+  {
+    title: "Innovation",
+    description: "Always evolving with latest tech and tools.",
+    imageSrc: "/assets/character-climbing-stairs.svg",
+  },
+];
+
+const slideInVariants = {
+  hiddenLeft: { opacity: 0, x: -100 },
+  hiddenRight: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
+export function CoreValuesSection() {
+  return (
+    <section className="max-w-6xl mx-auto py-16 px-6 space-y-10">
+      <h2 className="text-4xl font-bold text-blue-950 text-center mb-12">
+        Core Values
+      </h2>
+
+      {coreValues.map(({ title, description, imageSrc }, i) => (
+        <motion.div
+          key={title}
+          initial={i % 2 === 0 ? "hiddenLeft" : "hiddenRight"}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={slideInVariants}
+          className={`flex flex-col md:flex-row items-center gap-10 rounded-xl p-6 md:p-10  bg-blue-50  max-w-5xl mx-auto ${
+            i % 2 === 1 ? "md:flex-row-reverse" : ""
+          }`}
+        >
+          <div className="md:w-1/2 max-w-sm flex-shrink-0">
+            <Image
+              src={imageSrc}
+              alt={title}
+              width={400}
+              height={300}
+              className="rounded-lg object-contain"
+              priority={i === 0} // preload first image
+            />
+          </div>
+          <div className="md:w-1/2 max-w-md space-y-3 text-center md:text-left">
+            <h3 className="text-3xl font-semibold text-blue-950">{title}</h3>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              {description}
+            </p>
+          </div>
+        </motion.div>
+      ))}
+    </section>
+  );
+}
+
+export function HeroSection() {
+  return (
+    <section className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6 py-20 md:py-16">
+      {/* Text Side */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="md:w-1/2 space-y-6 text-center md:text-left"
+      >
+        <h1 className="text-blue-950 text-[clamp(30px,5vw,48px)] font-extrabold leading-tight">
+          Our Purpose – Your Success
+        </h1>
+        <p className="text-gray-700 text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
+          At Sowmya Consultancy Services, our mission is simple: empower
+          students and professionals to excel in their careers through expert
+          training, mentorship, and hands-on learning.
+        </p>
+        <button
+          className="px-6 py-3 rounded-full bg-yellow-400 text-blue-950 font-semibold shadow-md hover:bg-yellow-500 transition 
+          focus:outline-none focus-visible:ring-4 focus-visible:ring-yellow-300 focus-visible:ring-offset-2"
+        >
+          Get Started
+        </button>
+      </motion.div>
+
+      {/* Image Side */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="md:w-1/2 max-w-md mx-auto relative"
+      >
+        {/* Background subtle gradient shape */}
+        <div
+          aria-hidden="true"
+          className="absolute -top-12 -left-8 w-[300px] h-[350px] rounded-3xl bg-gradient-to-tr from-yellow-100 to-yellow-300 opacity-40 blur-3xl -z-10"
+        />
+        <Image
+          src="/assets/character-climbing-stairs.svg"
+          alt="Illustration of growth and success"
+          width={400}
+          height={350}
+          className="rounded-lg relative"
+          priority
+        />
+      </motion.div>
+    </section>
+  );
+}
+
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
 };
 
 export default function Aim() {
   return (
-    <div className=" space-y-20  ">
-      {/* Intro Banner */}
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 place-items-center relative overflow-hidden md:px-6 px-5 py-10">
-        <div className="h-fit z-10">
-          <motion.div {...fadeInUp} transition={{ duration: 0.6 }}>
-            <h1 className="text-32 font-extrabold text-center text-gray-900 ">
-              Our Purpose – Your Success
-            </h1>
-            <p className="text-center text-18 text-gray-600 max-w-3xl mx-auto">
-              At Sowmya Consultancy Services, our mission is simple: empower
-              students and professionals to excel in their careers through
-              expert training, mentorship, and hands-on learning.
-            </p>
-          </motion.div>
-        </div>
-        <div>
-          <Image
-            alt="hero-img"
-            src="/assets/character-climbing-stairs.svg"
-            width={500}
-            height={400}
-            className="h-auto max-w-[400px] z-10"
-          />
-        </div>
-        <div className="absolute bottom-[-250px] mx-auto hidden h-[313.87px] w-[935px] rotate-[0deg] -z-10 rounded-[50%] bg-blue-600 opacity-50 blur-[200px] md:block"></div>
+    <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 space-y-28 py-16">
+      <HeroSection />
+      <div className="">
+        <ExpandCards />
       </div>
-
-      {/* Mission & Vision */}
-      <div className="grid md:grid-cols-2 gap-12 md:px-6 px-5 py-10">
-        <motion.section {...fadeInUp} transition={{ delay: 0.2 }}>
-          <h2 className="text-2xl font-semibold mb-2 text-indigo-600">
-            Our Mission
-          </h2>
-          <p className="text-gray-700 leading-relaxed">
-            We are dedicated to bridging the gap between academic learning and
-            professional success by offering industry-aligned, job-ready
-            programs. Through practical training and personalized guidance, we
-            help individuals build a future-proof career foundation.
-          </p>
-        </motion.section>
-
-        <motion.section {...fadeInUp} transition={{ delay: 0.3 }}>
-          <h2 className="text-2xl font-semibold mb-2 text-indigo-600">
-            Our Vision
-          </h2>
-          <p className="text-gray-700 leading-relaxed">
-            Our vision is to be a nationally recognized career consultancy that
-            transforms talent into skilled professionals through consistent
-            mentorship, practical innovation, and result-driven learning
-            experiences.
-          </p>
-        </motion.section>
-      </div>
-
-      {/* Core Values */}
-      <motion.section
-        {...fadeInUp}
-        transition={{ delay: 0.4 }}
-        className="md:px-6 px-5 py-10"
-      >
-        <h2 className="text-2xl font-semibold mb-6 text-indigo-600">
-          Core Values
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              icon: <CheckCircle className="text-green-600" />,
-              title: "Integrity",
-              desc: "Honest and transparent guidance at every step.",
-            },
-            {
-              icon: <Target className="text-blue-600" />,
-              title: "Career Focus",
-              desc: "We put your goals at the center of our approach.",
-            },
-            {
-              icon: <Brain className="text-purple-600" />,
-              title: "Expertise",
-              desc: "Training by mentors with over 10 years of industry experience.",
-            },
-            {
-              icon: <Lightbulb className="text-yellow-500" />,
-              title: "Innovation",
-              desc: "Always evolving with latest tech and tools.",
-            },
-          ].map((value, index) => (
-            <div
-              key={index}
-              className="p-4 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition"
-            >
-              <div className="flex items-start space-x-3">
-                <div className="p-2 bg-white rounded-full shadow">
-                  {value.icon}
-                </div>
-                <div>
-                  <p className="font-medium text-lg">{value.title}</p>
-                  <p className="text-sm text-gray-600">{value.desc}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
+      <MissionVisionSection />
+      <CoreValuesSection />
 
       {/* Problems We Solve */}
-
       <motion.section
-        {...fadeInUp}
-        transition={{ delay: 0.5 }}
-        className="md:px-6 px-5 py-10"
+        initial="initial"
+        animate="animate"
+        variants={fadeUp}
+        transition={{ delay: 0.7, duration: 0.8 }}
+        className="max-w-6xl mx-auto"
       >
-        <h2 className="text-3xl font-semibold text-center text-red-600 mb-10">
+        <h2 className="text-center text-red-700 font-bold text-3xl mb-12">
           Problems We Solve
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {[
             {
               title: "Lack of Real-World Preparation",
               description:
                 "Students often miss hands-on interview and soft skill training that employers value.",
+              icon: <XCircle className="w-8 h-8 text-red-500" />,
+              bg: "bg-red-50",
             },
             {
               title: "No Industry Exposure",
               description:
                 "Fresh graduates struggle due to lack of experience with real-world tools and work environments.",
+              icon: <XCircle className="w-8 h-8 text-red-500" />,
+              bg: "bg-red-50",
             },
             {
               title: "Weak Resumes",
               description:
                 "Generic resumes with no personalization lead to low employer interest.",
+              icon: <XCircle className="w-8 h-8 text-red-500" />,
+              bg: "bg-red-50",
             },
             {
               title: "We Have the Solution",
               description:
                 "Practical training, resume tailoring, and expert support to bridge the gap.",
-              icon: <CheckCircle className="text-green-600 w-6 h-6" />,
-              highlight: true,
+              icon: <CheckCircle className="w-8 h-8 text-green-600" />,
+              bg: "bg-green-50",
             },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className={`rounded-xl border p-6 bg-white shadow-sm transition hover:shadow-md ${
-                item.highlight ? "border-green-500" : "border-red-300"
-              }`}
+          ].map(({ title, description, icon, bg }) => (
+            <motion.div
+              whileHover={{
+                scale: 1.04,
+                boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+              }}
+              key={title}
+              className={`${bg} rounded-xl p-6 border border-transparent cursor-pointer transition-all`}
             >
-              <div className="flex items-start space-x-4">
-                <div className="p-2 rounded-full bg-gray-100">
-                  {item.icon ?? <XCircle className="text-red-500 w-6 h-6" />}
+              <div className="flex items-start space-x-5">
+                <div className="p-3 bg-white rounded-full shadow-sm flex items-center justify-center">
+                  {icon}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
+                  <h3 className="text-red-700 font-semibold text-xl mb-2">
+                    {title}
+                  </h3>
+                  <p className="text-gray-700">{description}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.section>
 
       {/* Why Choose Us */}
       <motion.section
-        {...fadeInUp}
-        transition={{ delay: 0.6 }}
-        className="md:px-6 px-5 py-10"
+        initial="initial"
+        animate="animate"
+        variants={fadeUp}
+        transition={{ delay: 0.9, duration: 0.8 }}
+        className="max-w-6xl mx-auto"
       >
-        <h2 className="text-3xl font-semibold text-center text-indigo-600 mb-10">
+        <h2 className="text-center text-blue-950 font-bold text-3xl mb-12">
           Why Choose Us
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {[
             {
               title: "Role-Specific Technical Training",
@@ -204,21 +271,24 @@ export default function Aim() {
               title: "Strong Placement Support",
               desc: "Get referred and guided into top MNCs through our network.",
             },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="p-6 border rounded-xl bg-white shadow-sm hover:shadow-md transition"
+          ].map(({ title, desc }) => (
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              key={title}
+              className="p-6 border rounded-xl shadow-md cursor-pointer transition-shadow"
             >
               <div className="flex items-start space-x-4">
-                <div className="p-2 rounded-full bg-indigo-100">
-                  <Users className="text-indigo-500 w-6 h-6" />
+                <div className="p-3 rounded-full bg-yellow-100 flex items-center justify-center">
+                  <Users className="text-yellow-600 w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
+                  <h3 className="font-semibold text-blue-950 text-xl mb-1">
+                    {title}
+                  </h3>
+                  <p className="text-gray-700">{desc}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.section>

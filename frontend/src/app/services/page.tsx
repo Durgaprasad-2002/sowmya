@@ -209,7 +209,9 @@ export default function Services() {
   return (
     <div className="  text-gray-800 scroll-smooth">
       {/* Hero Section */}
-      <motion.section className="relative w-full max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center overflow-clip px-5 md:px-6 py-10">
+      <motion.section className="relative w-full  mx-auto grid md:grid-cols-2 gap-10 items-center overflow-clip px-5 md:px-6 py-10">
+        <div className="absolute w-[350px] h-[350px] rounded-[50%] top-[-100px] left-[-150px] blur-[150px] opacity-40 bg-violet-500 "></div>
+        <div className="absolute w-[350px] h-[350px] rounded-[50%] top-[-100px] right-[-150px] blur-[150px] opacity-40 bg-violet-500 "></div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -235,11 +237,11 @@ export default function Services() {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+        <div
+          // initial={{ opacity: 0 }}
+          // whileInView={{ opacity: 1 }}
+          // transition={{ duration: 0.6, ease: "easeOut" }}
+          // viewport={{ once: true }}
           className="hidden md:block"
         >
           <img
@@ -247,8 +249,8 @@ export default function Services() {
             alt="Career growth"
             className="w-full h-auto"
           />
-        </motion.div>
-        <div className="absolute w-full h-[500px] rounded-[50%] bottom-[-400px] mx-auto blur-[100px] opacity-20 bg-violet-500"></div>
+        </div>
+        <div className="absolute w-full h-[500px] rounded-[50%] bottom-[-400px] mx-auto blur-[100px] opacity-20 bg-violet-500 md:block hidden"></div>
       </motion.section>
 
       <TechnologiesSection />
