@@ -8,6 +8,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        background: "gray-50",
+        textPrimary: "black",
+        textSecondary: "gray-600",
+        button: "blue-900",
+        buttonHover: "blue-950",
+      },
       boxShadow: {
         medium: "0px 0px 12px 0px #3659E21F,0px 4px 8px 0px #3659E214",
       },

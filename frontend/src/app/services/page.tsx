@@ -180,9 +180,9 @@ function TechnologiesSection() {
         {/* RIGHT: Illustration */}
         <div className="relative flex justify-center items-center md:order-2 order-1">
           <div className="max-w-[500px] max-h-[500px] h-full w-full relative">
-            <div className="bg-blue-500 size-full absolute left-0 top-0  rounded-full blur-[150px] md:blur-[100px] opacity-20 md:opacity-40 -z-10"></div>
+            {/* <div className="bg-blue-500 size-full absolute left-0 top-0  rounded-full blur-[150px] md:blur-[100px] opacity-20 md:opacity-40 -z-10"></div> */}
             <Image
-              src="/assets/user-tech.png"
+              src="/assets/user-tech.svg"
               alt="Technologies Illustration"
               width={500}
               height={500}
@@ -236,7 +236,7 @@ export default function Services() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
+          initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}

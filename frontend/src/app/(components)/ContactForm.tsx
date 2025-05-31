@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast, ToastContainer } from "react-toastify";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -31,25 +32,35 @@ function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      //   const response = await fetch("/api/contact", {
-      //     method: "POST",
-      //     headers: { "Content-Type": "application/json" },
-      //     body: JSON.stringify(data),
-      //   });
+      console.log(contactSchema);
+      const resp = await fetch(`http://localhost:5000/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          message: data.message,
+        }),
+      });
 
-      //   if (!response.ok) throw new Error("Something went wrong");
+      if (!resp.ok) throw new Error("Something went wrong");
 
-      alert("Message sent successfully!");
+      toast.success("Thank you! We’ve received your message.");
       reset();
     } catch (err) {
-      alert("Failed to send message.");
+      toast.error("Network error. Please try again later.");
     }
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-4 grid grid-col-1 md:grid-col-2 mx-auto p-4 shadow-lg  rounded-lg"
+      className="space-y-4 grid grid-col-1 md:grid-col-2 mx-auto p-4  rounded-lg bg-white"
+      style={{
+        boxShadow:
+          "rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px",
+      }}
     >
       <div className="">
         <label className="block mb-1 text-18">Name</label>

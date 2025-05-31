@@ -68,6 +68,7 @@ function Footer() {
           <div className="flex justify-between items-center w-fit gap-4">
             {contactInfo.map((contact, ind) => (
               <Link
+                key={ind}
                 href={contact.link}
                 className="hover:scale-110 duration-150"
               >
