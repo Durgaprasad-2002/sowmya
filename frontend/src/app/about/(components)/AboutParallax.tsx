@@ -6,45 +6,56 @@ import Image from "next/image";
 
 export default function Parallax() {
   const ref = useRef(null);
-  // Track scroll progress of this section
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.03]);
 
   return (
-    <section ref={ref} className="relative h-[500px] overflow-hidden">
+    <section
+      ref={ref}
+      className="relative h-screen max-h-[600px] overflow-hidden select-none"
+      aria-label="Hero section with parallax background"
+    >
+      {/* Background Image with Parallax */}
       <motion.div
-        style={{ y }}
-        className="absolute inset-0 z-0 overflow-hidden"
+        style={{ y, scale }}
+        className="absolute inset-0 z-0"
+        aria-hidden="true"
       >
         <Image
           src="/assets/contact-bg.jpg"
-          alt="Parallax Background"
+          alt="Empowering Career Background"
           fill
-          className="object-cover object-right-bottom blur-[1px] "
+          className="object-cover brightness-[0.7]"
           priority
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/60" />
       </motion.div>
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-white text-center px-4">
+      {/* Content */}
+      <div className="relative z-10 flex flex-col justify-center items-center h-full text-center text-white px-6 sm:px-10 md:px-16">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-4xl lg:text-6xl font-bold"
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight max-w-5xl drop-shadow-xl"
         >
           Empower Your Future
         </motion.h1>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-4 max-w-xl text-lg"
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          className="mt-5 max-w-2xl text-base sm:text-lg md:text-xl font-medium tracking-wide text-white/90 drop-shadow-lg"
         >
-          Join expert-led training and build your career from the ground up.
+          Join expert-led training and build your career from the ground up with
+          Sowmya Consultancy Services.
         </motion.p>
       </div>
     </section>

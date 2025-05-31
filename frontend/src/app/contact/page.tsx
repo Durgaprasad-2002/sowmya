@@ -66,17 +66,17 @@ function ContactPage() {
   return (
     <div className="">
       <ConatctHero />
-      <div className="px-5 md:px-6 py-10">
+      <div className="px-5 md:px-6 py-10 bg-gray-50">
         <div className=" grid lg:grid-cols-2 grid-col-1 gap-14 md:gap-6 mt-10">
           <div>
             <ContactForm />
           </div>
           <div className="grid md:grid-col-2 grid-col-1 px-4 gap-10 md:gap-6 ">
-            <div>
-              <h2 className="border-l-2 pl-2 h-fit border-blue-900 font-bold text-24">
+            <div className="mt-5 md:mt-0">
+              <h2 className="border-l-2 pl-2 h-fit border-blue-900 font-bold text-24 text-textPrimary">
                 Contact Details
               </h2>
-              <ul className="space-y-3 mt-5 text-18">
+              <ul className="space-y-3 mt-5 text-18 text-gray-600">
                 <li className="flex items-center gap-3">
                   <IoCallOutline className="bg-blue-900 text-white rounded-full p-1.5 w-[30px] h-[30px] overflow-visible" />
                   <span>+91 9177943677</span>
@@ -92,17 +92,17 @@ function ContactPage() {
               </ul>
             </div>
             <div>
-              <h2 className="border-l-2 pl-2 h-fit border-blue-900 font-bold text-24">
+              <h2 className="border-l-2 pl-2 h-fit border-blue-900 font-bold text-24 text-textPrimary">
                 Address
               </h2>
-              <p className="mt-5 text-18">
+              <p className="mt-5 text-18 text-gray-600">
                 Name: John Doe <br />
                 Street: 1234 Elm Street <br />
                 City: Springfield <br />
                 Country: United States
               </p>
             </div>
-            <div className="md:col-span-2">
+            <div className="md:col-span-2  md:row-span-4">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.0592934641277!2d78.46962828973084!3d17.408941907489524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb975f3aa25c81%3A0x2783de93c2a90bd7!2sLumbini%20Parking%2C%20Hussain%20Sagar%2C%20Khairtabad%2C%20Hyderabad%2C%20Telangana%20500022!5e0!3m2!1sen!2sin!4v1747841542631!5m2!1sen!2sin"
                 loading="lazy"

@@ -1,0 +1,13 @@
+<mjml>
+  <mj-body>
+    <mj-section>
+      <mj-column>
+        <mj-text font-size="18px">New Contact Submission</mj-text>
+        <mj-text><strong>Name:</strong> {{name}}</mj-text>
+        <mj-text><strong>Email:</strong> {{email}}</mj-text>
+        <mj-text><strong>Phone:</strong> {{phone}}</mj-text>
+        <mj-text><strong>Message:</strong> {{message}}</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
