@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 import ExpandCards from "./(components)/ExpandCards";
 
-export function MissionVisionSection() {
+function MissionVisionSection() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12">
       <div className="bg-blue-50 rounded-3xl p-10 shadow-lg">
@@ -68,7 +68,7 @@ const slideInVariants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
-export function CoreValuesSection() {
+function CoreValuesSection() {
   return (
     <section className="max-w-6xl mx-auto py-16 px-6 space-y-10">
       <h2 className="text-4xl font-bold text-blue-950 text-center mb-12">
@@ -108,7 +108,7 @@ export function CoreValuesSection() {
   );
 }
 
-export function HeroSection() {
+function HeroSection() {
   return (
     <section className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6 py-20 md:py-16">
       {/* Text Side */}
