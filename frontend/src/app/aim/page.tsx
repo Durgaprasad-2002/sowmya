@@ -280,9 +280,9 @@ export default function Aim() {
 
       <MissionVisionSection />
 
-      <div className="">
+      {/* <div className="">
         <ExpandCards />
-      </div>
+      </div> */}
 
       <CoreValuesSection />
 
