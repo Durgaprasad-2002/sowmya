@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { X, Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const tabs = [
   { id: 1, name: "Home", link: "/" },
@@ -13,6 +14,7 @@ const tabs = [
 
 function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -20,7 +22,9 @@ function Navbar() {
         <div className="backdrop-blur-sm bg-white/70 w-full h-[100px] -z-10 absolute left-0 top-0"></div>
         <div className="max-w-[1440px] mx-auto h-[100px] flex justify-between items-center px-5 lg:px-10 z-50">
           {/* Sowmya Consultancy */}
-          <h1 className="text-2xl lg:text-4xl font-bold">Sowmya</h1>
+          <Link href="/">
+            <h1 className="text-2xl lg:text-4xl font-bold">Sowmya</h1>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex gap-8">
@@ -29,6 +33,11 @@ function Navbar() {
                 <div className="text-lg hover:scale-110 transition-transform duration-200 cursor-pointer">
                   {tab.name}
                 </div>
+                <div
+                  className={`mt-1 w-full h-0.5 rounded-[50px] transition-all ${
+                    pathname === tab.link ? "bg-black" : ""
+                  }`}
+                ></div>
               </Link>
             ))}
           </div>
@@ -75,7 +84,9 @@ function Navbar() {
                 <Link key={tab.id} href={tab.link}>
                   <div
                     onClick={() => setShowNavbar(false)}
-                    className="text-lg p-4 rounded-md hover:bg-gray-200 transition"
+                    className={`${
+                      pathname === tab.link ? "bg-gray-100" : ""
+                    } text-lg p-4 rounded-md hover:bg-gray-200 transition`}
                   >
                     {tab.name}
                   </div>

@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import ExpandCards from "./(components)/ExpandCards";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 function MissionVisionSection() {
   return (
@@ -21,8 +22,10 @@ function MissionVisionSection() {
         className="absolute -top-12 lg:block hidden -left-8 w-[300px] h-[350px] rounded-3xl bg-gradient-to-tr from-blue-100 to-blue-300 opacity-40 blur-3xl -z-10"
       />
       <div className="bg-blue-50 rounded-3xl p-5 md:p-10 shadow-lg">
-        <h3 className="text-3xl font-bold text-blue-900 mb-4">Our Mission</h3>
-        <p className="text-gray-700 text-lg leading-relaxed">
+        <h3 className="text-25 md:text-28 font-bold text-blue-900 mb-4">
+          Our Mission
+        </h3>
+        <p className="text-gray-700  text-16 md:text-18 leading-relaxed">
           We are dedicated to bridging the gap between academic learning and
           professional success by offering industry-aligned, job-ready programs.
           Through practical training and personalized guidance, we help
@@ -31,8 +34,10 @@ function MissionVisionSection() {
       </div>
 
       <div className="bg-yellow-50 rounded-3xl p-5 md:p-10 shadow-lg">
-        <h3 className="text-3xl font-bold text-yellow-800 mb-4">Our Vision</h3>
-        <p className="text-gray-800 text-lg leading-relaxed">
+        <h3 className="text-25 md:text-28 font-bold text-yellow-800 mb-4">
+          Our Vision
+        </h3>
+        <p className="text-gray-800 leading-relaxed text-16 md:text-18">
           Our vision is to be a nationally recognized career consultancy that
           transforms talent into skilled professionals through consistent
           mentorship, practical innovation, and result-driven learning
@@ -52,31 +57,31 @@ const coreValues = [
     title: "Integrity",
     description:
       "We provide honest, transparent, and ethical guidance at every stage of your journey — from training to placement. Our goal is to earn your trust by delivering what we promise.",
-    imageSrc: "/assets/integrity.jpg",
+    imageSrc: "/assets/integrity.webp",
   },
   {
     title: "Career-Oriented Training",
     description:
       "We focus on shaping your career through interview-based training, real-time projects, and practical skill-building in Python, Java, SQL, Linux, DBMS, and more.",
-    imageSrc: "/assets/career.jpg",
+    imageSrc: "/assets/career.webp",
   },
   {
     title: "Industry Expertise",
     description:
       "Our training is led by professionals with over 10 years of experience in top MNCs. They bring real-world knowledge, mentorship, and the latest industry practices to every session.",
-    imageSrc: "/assets/industry-expert.jpg",
+    imageSrc: "/assets/industry-expert.webp",
   },
   {
     title: "Innovation & Adaptability",
     description:
       "We continuously update our curriculum, tools, and teaching methods to align with the dynamic IT industry — so you’re always ahead of the curve.",
-    imageSrc: "/assets/innovation.jpg",
+    imageSrc: "/assets/innovation.webp",
   },
   {
     title: "End-to-End Support",
     description:
       "From tailored, ATS-friendly resumes to weekly mock interviews and placement drives — we support you every step of the way until you get placed.",
-    imageSrc: "/assets/support.jpg",
+    imageSrc: "/assets/support.webp",
   },
 ];
 
@@ -89,7 +94,7 @@ const slideInVariants = {
 function CoreValuesSection() {
   return (
     <section className="mx-auto py-16 px-6 space-y-10 overflow-x-hidden">
-      <h2 className="text-4xl font-bold text-blue-950 text-center mb-12">
+      <h2 className="text-25 md:text-32 font-bold  text-blue-950 text-center mb-12">
         Core Values
       </h2>
 
@@ -115,8 +120,10 @@ function CoreValuesSection() {
             />
           </div>
           <div className="md:w-1/2 max-w-md space-y-3 text-center md:text-left">
-            <h3 className="text-3xl font-semibold text-blue-950">{title}</h3>
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <h3 className="text-22 md:text-28 font-semibold text-blue-950 border-b h-fit border-blue-900 md:w-full mx-auto w-fit ">
+              {title}
+            </h3>
+            <p className="text-gray-700 text-16 md:text-18 leading-relaxed">
               {description}
             </p>
           </div>
@@ -214,14 +221,6 @@ function FlippingCard({
 function HeroSection() {
   return (
     <section className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6 py-20 md:py-16 relative ">
-      {/* <div
-        aria-hidden="true"
-        className="absolute -top-12 -left-[200px] w-[350px] h-[350px] rounded-3xl bg-gradient-to-tr from-purple-100 to-purple-700 opacity-40 blur-3xl -z-10"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute -top-12 -right-[100px] w-[350px] h-[350px] rounded-3xl bg-gradient-to-tr from-purple-100 to-purple-700 opacity-40 blur-3xl -z-10"
-      /> */}
       {/* Text Side */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
@@ -230,17 +229,19 @@ function HeroSection() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="md:w-1/2 space-y-6 text-center md:text-left relative"
       >
-        <h1 className="text-blue-950 text-[clamp(30px,5vw,48px)] font-extrabold leading-tight">
+        <h1 className="text-blue-950 text-[clamp(30px,5vw,48px)] font-bold text-25 md:text-44 leading-tight">
           Our Purpose – Your Success
         </h1>
-        <p className="text-gray-700 text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
+        <p className="text-gray-700 text-18 md:text-20 max-w-md mx-auto md:mx-0 leading-relaxed">
           At Sowmya Consultancy Services, our mission is simple: empower
           students and professionals to excel in their careers through expert
           training, mentorship, and hands-on learning.
         </p>
-        <button className="px-6 py-3 rounded-full bg-indigo-500 text-white font-semibold shadow-md hover:bg-indigo-600 transition focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300 focus-visible:ring-offset-2">
-          Get Started
-        </button>
+        <Link href="/services">
+          <button className="px-6 py-3 rounded-full text-16 md:text-18 bg-indigo-500 text-white font-semibold shadow-md hover:bg-indigo-600 transition focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-300 focus-visible:ring-offset-2">
+            Get Started
+          </button>
+        </Link>
       </motion.div>
 
       {/* Card Side */}
@@ -249,7 +250,7 @@ function HeroSection() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="md:w-1/2 grid grid-cols-1 gap-6 max-w-md mx-auto relative z-10 overflow-clip"
+        className="md:w-1/2 grid grid-cols-1 gap-6 max-w-md mx-auto relative z-10 "
       >
         <div className="col-span-1 w-full">
           <FlippingCard
@@ -274,12 +275,15 @@ const fadeUp = {
 
 export default function Aim() {
   return (
-    <div className=" mx-auto px-5 md:px-6  space-y-10 py-10">
+    <div className=" mx-auto px-5 md:px-6  space-y-10 py-10 overflow-hidden">
       <HeroSection />
+
+      <MissionVisionSection />
+
       {/* <div className="">
         <ExpandCards />
       </div> */}
-      <MissionVisionSection />
+
       <CoreValuesSection />
 
       {/* Problems We Solve */}
@@ -290,7 +294,7 @@ export default function Aim() {
         transition={{ delay: 0.7, duration: 0.8 }}
         className="max-w-6xl mx-auto"
       >
-        <h2 className="text-center text-red-700 font-bold text-3xl mb-12">
+        <h2 className="text-24 md:text-32 font-bold   text-red-700 text-center mb-12">
           Problems We Solve
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -332,15 +336,17 @@ export default function Aim() {
               key={title}
               className={`${bg} rounded-xl p-6 border border-transparent cursor-pointer transition-all`}
             >
-              <div className="flex items-start space-x-5">
+              <div className="flex items-start  space-x-3 md:space-x-5">
                 <div className="p-3 bg-white rounded-full shadow-sm flex items-center justify-center">
                   {icon}
                 </div>
                 <div>
-                  <h3 className="text-red-700 font-semibold text-xl mb-2">
+                  <h3 className="text-red-700 font-semibold text-18 md:text-20 mb-2">
                     {title}
                   </h3>
-                  <p className="text-gray-700">{description}</p>
+                  <p className="text-gray-700 text-16 md:text-18 ">
+                    {description}
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -356,7 +362,7 @@ export default function Aim() {
         transition={{ delay: 0.9, duration: 0.8 }}
         className="max-w-6xl mx-auto"
       >
-        <h2 className="text-center text-blue-950 font-bold text-3xl mb-12">
+        <h2 className="text-24 md:text-32 font-bold   text-blue-950 text-center mb-12">
           Why Choose Us
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -383,15 +389,15 @@ export default function Aim() {
               key={title}
               className="p-6 border rounded-xl shadow-md cursor-pointer transition-shadow"
             >
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start  space-x-4">
                 <div className="p-3 rounded-full bg-yellow-100 flex items-center justify-center">
                   <Users className="text-yellow-600 w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-blue-950 text-xl mb-1">
+                  <h3 className="font-semibold text-blue-950 text-18 md:text-20 mb-1">
                     {title}
                   </h3>
-                  <p className="text-gray-700">{desc}</p>
+                  <p className="text-gray-700 text-16 md:text-18">{desc}</p>
                 </div>
               </div>
             </motion.div>
