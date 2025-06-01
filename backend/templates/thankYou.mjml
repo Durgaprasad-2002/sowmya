@@ -4,15 +4,15 @@
       name="Roboto"
       href="https://fonts.googleapis.com/css?family=Roboto"
     />
-    <mj-preview>Thank you for reaching out to Sowmya Consultancy</mj-preview>
+    <mj-preview>Thank you for contacting Sowmya Consultancy!</mj-preview>
     <mj-style> .highlight { color: #0056b3; font-weight: bold; } </mj-style>
   </mj-head>
 
-  <mj-body background-color="#f4f4f4" font-family="Roboto, sans-serif">
-    <mj-section background-color="#ffffff" padding="20px" border-radius="12px">
+  <mj-body background-color="#f0f4f8" font-family="Roboto, sans-serif">
+    <mj-section background-color="#ffffff" padding="30px" border-radius="16px">
       <mj-column>
         <mj-image
-          width="80px"
+          width="100px"
           src="https://img.icons8.com/clouds/100/000000/handshake.png"
           alt="Handshake"
         />
@@ -20,35 +20,37 @@
         <mj-text
           align="center"
           font-size="24px"
-          color="#333333"
+          color="#0056b3"
           font-weight="bold"
+          padding-top="10px"
         >
           Thank You, {{name}}!
         </mj-text>
 
-        <mj-text font-size="16px" color="#555555" line-height="1.8">
+        <mj-text
+          font-size="16px"
+          color="#555555"
+          line-height="1.8"
+          padding="10px 0"
+        >
           We’ve received your message at
-          <span class="highlight">Sowmya Consultancy</span>, and our team is
-          already reviewing it. Whether you're a
-          <strong>fresher</strong> starting your career or an
-          <strong>experienced professional</strong> seeking a job change, we're
-          here to guide you.
+          <span class="highlight">Sowmya Consultancy</span>. Our team is already
+          reviewing it. Whether you're a <strong>fresher</strong> or an
+          <strong>experienced professional</strong>, we’re here to guide your
+          next career step.
         </mj-text>
 
         <mj-divider border-color="#cccccc" padding="10px 0" />
 
-        <mj-text font-size="16px" color="#555555" line-height="1.6">
-          Here’s what we can help you with:
-          <ul>
+        <mj-text font-size="16px" color="#444444" line-height="1.6">
+          <strong>Here's what we can help you with:</strong>
+          <ul style="padding-left:20px; margin-top:10px;">
             <li>
-              Interview-oriented training in
-              <strong>Python, Java, SQL, Linux, and DBMS</strong>
+              Training in <strong>Python, Java, SQL, Linux, and DBMS</strong>
             </li>
-            <li>Resume building & personalized mock interviews</li>
-            <li>Internships and placement drives from top MNCs</li>
-            <li>
-              Support for experienced candidates aiming to shift companies
-            </li>
+            <li>Tailored resumes & mock interviews</li>
+            <li>Internships & MNC placement drives</li>
+            <li>Support for experienced professionals switching roles</li>
           </ul>
         </mj-text>
 
@@ -57,22 +59,28 @@
           color="#ffffff"
           href="https://your-website.com"
           font-size="16px"
-          border-radius="6px"
+          border-radius="8px"
           padding="20px 0"
         >
-          Explore More Opportunities
+          🌐 Explore Opportunities
         </mj-button>
 
-        <mj-text align="center" font-size="14px" color="#999999">
-          — Sowmya Consultancy Team
+        <mj-text
+          align="center"
+          font-size="14px"
+          color="#999999"
+          padding="10px 0"
+        >
+          — The Sowmya Consultancy Team
         </mj-text>
       </mj-column>
     </mj-section>
 
-    <mj-section padding="10px">
+    <mj-section padding="15px 0">
       <mj-column>
         <mj-text align="center" font-size="12px" color="#aaaaaa">
-          You are receiving this email because you contacted us via our website.
+          You are receiving this email because you contacted us through our
+          website.
         </mj-text>
       </mj-column>
     </mj-section>

@@ -1,12 +1,41 @@
 <mjml>
-  <mj-body>
-    <mj-section>
+  <mj-head>
+    <mj-preview>New Contact Submission</mj-preview>
+    <mj-font
+      name="Roboto"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <mj-style> .label { color: #0056b3; font-weight: bold; } </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#f0f4f8" font-family="Roboto, sans-serif">
+    <mj-section background-color="#ffffff" border-radius="12px" padding="20px">
       <mj-column>
-        <mj-text font-size="18px">New Contact Submission</mj-text>
-        <mj-text><strong>Name:</strong> {{name}}</mj-text>
-        <mj-text><strong>Email:</strong> {{email}}</mj-text>
-        <mj-text><strong>Phone:</strong> {{phone}}</mj-text>
-        <mj-text><strong>Message:</strong> {{message}}</mj-text>
+        <mj-text
+          align="center"
+          font-size="22px"
+          color="#333333"
+          font-weight="bold"
+        >
+          📩 New Contact Submission
+        </mj-text>
+
+        <mj-divider border-color="#dcdcdc" padding="10px 0" />
+
+        <mj-text font-size="16px" color="#555555" line-height="1.8">
+          <span class="label">Name:</span> {{name}}<br />
+          <span class="label">Email:</span> {{email}}<br />
+          <span class="label">Phone:</span> {{phone}}<br />
+          <span class="label">Message:</span><br />
+          {{message}}
+        </mj-text>
+
+        <mj-divider border-color="#dcdcdc" padding="10px 0" />
+
+        <mj-text align="center" font-size="14px" color="#999999">
+          This message was received via Sowmya Consultancy's website contact
+          form.
+        </mj-text>
       </mj-column>
     </mj-section>
   </mj-body>
