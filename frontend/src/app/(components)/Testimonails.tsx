@@ -50,7 +50,7 @@ const CustomerStory = ({ data }: { data: any }) => {
       <div className="flex justify-between">
         <div className="flex items-center justify-start gap-2">
           <Image
-            src="/assets/user_placement.png"
+            src="/assets/user_placement.webp"
             alt="customer-image"
             width={50}
             height={50}

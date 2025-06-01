@@ -28,7 +28,7 @@ export default function Parallax() {
         aria-hidden="true"
       >
         <Image
-          src="/assets/contact-bg.jpg"
+          src="/assets/contact-bg.webp"
           alt="Empowering Career Background"
           fill
           className="object-cover brightness-[0.7]"

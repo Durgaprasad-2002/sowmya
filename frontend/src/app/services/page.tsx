@@ -215,7 +215,7 @@ export default function Services() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeIn" }}
           viewport={{ once: true }}
         >
           <h1 className="text-25 md:text-44 font-extrabold text-gray-900 leading-tight mb-6">
@@ -230,22 +230,16 @@ export default function Services() {
           <div className="flex flex-wrap gap-4">
             <button
               onClick={handleScroll}
-              className="border border-blue-600 text-blue-600 px-6 py-3 rounded-md font-medium hover:bg-blue-50 transition"
+              className="border border-blue-600 text-blue-600 px-6 py-3 rounded-md font-medium hover:bg-blue-50 text-16 md:text-18 transition"
             >
               Learn More
             </button>
           </div>
         </motion.div>
 
-        <div
-          // initial={{ opacity: 0 }}
-          // whileInView={{ opacity: 1 }}
-          // transition={{ duration: 0.6, ease: "easeOut" }}
-          // viewport={{ once: true }}
-          className="hidden md:block"
-        >
+        <div className="hidden md:block">
           <img
-            src="/assets/services-hero.png"
+            src="/assets/services-hero.webp"
             alt="Career growth"
             className="w-full h-auto"
           />
