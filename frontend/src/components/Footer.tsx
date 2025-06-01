@@ -26,6 +26,8 @@ const contactInfo = [
 
 const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Aim", href: "/ain" },
+  { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
