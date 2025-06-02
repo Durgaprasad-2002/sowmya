@@ -79,15 +79,15 @@ function ContactPage() {
               <ul className="space-y-3 mt-5 text-18 text-gray-600">
                 <li className="flex items-center gap-3">
                   <IoCallOutline className="bg-blue-900 text-white rounded-full p-1.5 w-[30px] h-[30px] overflow-visible" />
-                  <span>+91 9177943677</span>
+                  <span>+91 7997679496, +91 95150 66474</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <FaWhatsapp className="bg-blue-900 text-white rounded-full p-1.5 w-[30px] h-[30px] overflow-visible" />
-                  <span>+91 9177943677</span>
+                  <span>+91 7997679496</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <TfiEmail className="bg-blue-900 text-white rounded-full p-1.5 w-[30px] h-[30px] overflow-visible" />
-                  <span>prasaddurga2031@gmail.com</span>
+                  <span>srikanth@sowmyacs.com</span>
                 </li>
               </ul>
             </div>
@@ -96,10 +96,8 @@ function ContactPage() {
                 Address
               </h2>
               <p className="mt-5 text-18 text-gray-600">
-                Name: John Doe <br />
-                Street: 1234 Elm Street <br />
-                City: Springfield <br />
-                Country: United States
+                H.No. 7-1-621/99/1, 2nd Floor, Opp. Axis Bank, Sanjeeva Reddy
+                Nagar. Hyderabad 500038, Telangana.
               </p>
             </div>
             <div className="md:col-span-2  md:row-span-4">

@@ -7,20 +7,20 @@ const contactInfo = [
   {
     icon: <FaWhatsapp className="w-[30px] h-[30px]" />,
     label: "WhatsApp",
-    value: "+91-1234567890",
-    link: "https://wa.me/911234567890",
+    value: "+917997679496",
+    link: "https://wa.me/7997679496",
   },
   {
     icon: <MdOutlinePhone className="w-[30px] h-[30px]" />,
     label: "Phone",
-    value: "+91-9876543210",
-    link: "tel:+919876543210",
+    value: "+91 7997679496",
+    link: "tel:7997679496",
   },
   {
     icon: <MdOutlineEmail className="w-[30px] h-[30px]" />,
     label: "Email",
-    value: "info@example.com",
-    link: "mailto:info@example.com",
+    value: "srikanth@sowmyacs.com",
+    link: "mailto:srikanth@sowmyacs.com",
   },
 ];
 
