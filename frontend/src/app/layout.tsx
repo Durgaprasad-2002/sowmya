@@ -5,6 +5,7 @@ import Navbar from "dp/components/Navbar";
 import Footer from "dp/components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Analytics from "../components/Analytics";
 
 const inter = Nunito_Sans({
   subsets: ["latin"],
@@ -53,6 +54,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Analytics />
+      </head>
       <body
         className={`${inter.className}  antialiased flex flex-col items-center`}
       >
